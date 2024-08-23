@@ -3,8 +3,8 @@ import { Categorias } from '@core/interfaces/categorias.interface';
 import { HttpResponse } from '@core/interfaces/http.interface';
 import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
-import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { environment } from '@environment/environment';
+import { MenuItemComponent } from '@shared/components/menu-item/menu-item.component';
 
 @Component({
   selector: 'app-menu',
