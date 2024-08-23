@@ -1,0 +1,22 @@
+/* Estado neutro */
+.mat-chip {
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 14px;
+  border-radius: 16px;
+  padding: 5px 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estado activo */
+.active-chip {
+  background-color: #333 !important;
+  color: white !important;
+  .mat-mdc-chip-action-label {
+    color: white !important;
+  }
+  &:hover {
+    background-color: #d6d6d6 !important; // Fondo gris más oscuro al pasar el cursor
+    color: #333 !important;
+  }
+}
