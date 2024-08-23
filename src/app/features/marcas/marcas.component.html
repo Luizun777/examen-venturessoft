@@ -1,7 +1,7 @@
 <div class="contenido-filter">
   <h2>Featured Instant Coupons ({{ marcas.length }})</h2>
   <div class="btn-filtros">
-    <button mat-mini-fab color="primary">
+    <button mat-icon-button>
       <mat-icon>format_list_bulleted</mat-icon>
     </button>
     <button mat-mini-fab color="primary">
@@ -21,6 +21,18 @@
 <div class="contenido-loader">
   <mat-spinner></mat-spinner>
 </div>
-} @else { @for (item of marcas; track $index) {
-<app-marca />
-} }
+} @else {
+<div class="grid-container">
+  @for (marca of marcasFilter; track $index) {
+  <app-marca [marca]="marca" />
+  }
+</div>
+} @if (marcasFilter.length !== marcas.length) {
+<div class="contenido-btn">
+  <button mat-flat-button color="primary" (click)="allCoupons()">
+    MORE INSTANT COUPONS >
+  </button>
+</div>
+} @if ( marcas.length === 0 && !cargando) {
+  <h2 class="no-data">No se encontraron registros</h2>
+}

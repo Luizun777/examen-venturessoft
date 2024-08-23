@@ -3,17 +3,118 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   margin-top: 1rem;
+
   h2 {
     margin: 0px;
   }
+
   .btn-filtros {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 }
+
+// Para monitores de escritorio (pantallas grandes, >1200px)
+@media (min-width: 1201px) {
+  .contenido-filter {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+// Para laptops (pantallas medianas, entre 1024px y 1200px)
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .contenido-filter {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+// Para tablets (pantallas medianas, entre 481px y 768px)
+@media (max-width: 1023px) and (min-width: 768px) {
+  .contenido-filter {
+    grid-template-columns: 1fr auto;
+    .btn-filtros {
+      gap: 0.5rem;
+    }
+  }
+}
+
+// Para móviles (pantallas pequeñas, entre 321px y 480px)
+@media (max-width: 767px) and (min-width: 481px) {
+  .contenido-filter {
+    grid-template-columns: 1fr;
+    .btn-filtros {
+      justify-content: flex-start;
+    }
+  }
+}
+
+// Para móviles pequeños (pantallas muy pequeñas, <=320px)
+@media (max-width: 480px) {
+  .contenido-filter {
+    grid-template-columns: 1fr;
+    .btn-filtros {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
 .contenido-loader {
   display: flex;
   justify-content: center;
   margin: 7rem 0px 10rem;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
+
+// Para monitores de escritorio (pantallas grandes, >1200px)
+@media (min-width: 1201px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 24px;
+  }
+}
+
+// Para laptops (pantallas medianas, entre 1024px y 1200px)
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+}
+
+// Para tablets (pantallas medianas, entre 481px y 768px)
+@media (max-width: 1023px) and (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 16px;
+  }
+}
+
+// Para móviles (pantallas pequeñas, entre 321px y 480px)
+@media (max-width: 767px) and (min-width: 481px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 12px;
+  }
+}
+
+// Para móviles pequeños (pantallas muy pequeñas, <=320px)
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 300px; // Una sola columna
+    grid-gap: 8px;
+  }
+}
+.contenido-btn {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+}
+.no-data {
+  text-align: center;
 }

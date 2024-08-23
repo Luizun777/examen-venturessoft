@@ -31,6 +31,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   private alertSrv = inject(AlertService);
 
   marcas: Marcas[] = [];
+  marcasFilter: Marcas[] = [];
   cargando: boolean = true;
 
   private marcasSub: Subscription = new Subscription();
@@ -50,14 +51,16 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   getMarcas(): void {
     this.marcas = [];
+    this.marcasFilter = [];
     this.cargando = true;
     this.marcasSub = this.marcasSrv.getMarcas().subscribe(
       ({ codigo, menuItems, error, message }: HttpResponse<Marcas[]>) => {
         if (error) {
           this.alertSrv.alertError(`${message} ${codigo}`);
         }
-        this.marcas = menuItems;
         this.cargando = false;
+        this.marcas = menuItems;
+        this.marcasFilter = [...menuItems].splice(0, 7);
       },
       () => {
         this.alertSrv.alertError('Se ha producido un error al cargar datos');
@@ -71,5 +74,9 @@ export class MarcasComponent implements OnInit, OnDestroy {
       this.marcasSub.unsubscribe();
       this.getMarcas();
     });
+  }
+
+  allCoupons(): void {
+    this.marcasFilter = [...this.marcas];
   }
 }
