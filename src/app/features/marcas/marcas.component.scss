@@ -1,0 +1,19 @@
+.contenido-filter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-top: 1rem;
+  h2 {
+    margin: 0px;
+  }
+  .btn-filtros {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+.contenido-loader {
+  display: flex;
+  justify-content: center;
+  margin: 7rem 0px 10rem;
+}
