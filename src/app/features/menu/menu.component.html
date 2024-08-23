@@ -2,7 +2,12 @@
   <h1 class="custom-text">Explorer Instant Coupons</h1>
 </div>
 <div class="contenido-items">
-  @for (item of menuItems; track $index) {
+  @if (cargando) {
+  <mat-progress-bar
+    mode="indeterminate"
+    class="contenido-progress-bar"
+  ></mat-progress-bar>
+  } @else { @for (item of menuItems; track $index) {
   <menu-item [item]="item" (clickItemEvent)="itemSelected($event)" />
-  }
+  } }
 </div>
