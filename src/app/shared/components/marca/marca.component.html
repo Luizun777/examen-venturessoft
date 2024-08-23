@@ -1,1 +1,23 @@
-<p>marca works!</p>
+<mat-card class="container-card">
+  <img
+    mat-card-image
+    [src]="marca.imagen || 'assets/images/no-image.jpg'"
+    [alt]="marca.nombreMarca"
+  />
+  <mat-card-content>
+    <div class="coupon-badge">
+      <mat-icon>card_travel</mat-icon>
+      Instant Coupon
+    </div>
+    <p>
+      {{ marca.nombreMarca }}
+    </p>
+    <mat-card-title> {{ marca.descripcion }}</mat-card-title>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>
+      Get Coupon
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
