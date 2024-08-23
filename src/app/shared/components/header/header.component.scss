@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .container {
+    padding: 20px;
+  }
+
+  .buttons {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .container {
+    padding: 15px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .container {
+    justify-content: center;
+    padding: 15px;
+
+    .buttons {
+      gap: 8px;
+    }
+  }
+}
+
+@media (max-width: 480px) and (min-width: 321px) {
+  .container {
+    justify-content: center;
+    padding: 10px;
+
+    .buttons {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    justify-content: center;
+    padding: 8px;
+
+    .buttons {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    button {
+      width: 100%;
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+}
