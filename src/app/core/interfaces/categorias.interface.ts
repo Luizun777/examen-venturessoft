@@ -1,4 +1,6 @@
 export interface Categorias {
   idMenu: number;
-  descripción: string;
+  descripción?: string;
+  descripcion?: string;
+  active?: boolean;
 }
