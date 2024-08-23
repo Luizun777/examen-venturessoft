@@ -25,9 +25,7 @@ export class MenuComponent implements OnInit {
 
   getCategorias(): void {
     this.catalogosSrv.getCategorias().subscribe(
-      (response: HttpResponse<Categorias[]>) => {
-        const { error, codigo, message, menuItems } = response;
-        console.log(response);
+      ({ error, codigo, message, menuItems }: HttpResponse<Categorias[]>) => {
         if (error) {
           this.alertSrv.alertError(`${message} ${codigo}`);
         }
