@@ -1,8 +1,8 @@
 <header class="container">
   <div class="buttons">
-    <btn-text-icon [title]="'Log In'" [icon]="'chevron_right'" />
+    <btn-text-icon [title]="(header$ | async)?.['login'] ?? ''" [icon]="'chevron_right'" />
     <btn-text-icon
-      [title]="'LINK YOUR CARD'"
+      [title]="(header$ | async)?.['linkYoCard'] ?? ''"
       [icon]="'chevron_right'"
       [matBtn]="false"
       color="primary"
