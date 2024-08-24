@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private translationSrv = inject(TranslationService);
 
   marcas: Marca[] = [];
+  catUnlock: string[] = CatUnlock;
 
   details$: Observable<{ [key: string]: string }> = new Observable();
 
@@ -53,7 +54,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
             }
             return <Marca>{
               ...this.marcaRandom(menuItems),
-              background: CatUnlock[index],
+              background: this.catUnlock[index],
             };
           })
           .filter((marca: Marca | undefined) => marca) as Marca[];
