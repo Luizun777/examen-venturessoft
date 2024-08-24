@@ -65,9 +65,17 @@
   justify-content: center;
   margin: 7rem 0px 10rem;
 }
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 16px;
 }
 
@@ -90,7 +98,7 @@
 // Para tablets (pantallas medianas, entre 481px y 768px)
 @media (max-width: 1023px) and (min-width: 768px) {
   .grid-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-gap: 16px;
   }
 }
@@ -98,7 +106,7 @@
 // Para móviles (pantallas pequeñas, entre 321px y 480px)
 @media (max-width: 767px) and (min-width: 481px) {
   .grid-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(0px, 1fr));
     grid-gap: 12px;
   }
 }

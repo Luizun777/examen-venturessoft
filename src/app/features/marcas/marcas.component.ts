@@ -8,9 +8,10 @@ import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
 import { MarcasService } from '@core/services/marcas.service';
 import { environment } from '@environment/environment';
-import { MarcaComponent } from '@shared/components/marca/marca.component';
 import { Subscription } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DetailComponent } from '@shared/components/detail/detail.component';
+import { BtnTextIconComponent } from '../../shared/components/btn-text-icon/btn-text-icon.component';
 
 @Component({
   selector: 'app-marcas',
@@ -19,8 +20,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    MarcaComponent,
     MatProgressSpinnerModule,
+    DetailComponent,
+    BtnTextIconComponent,
   ],
   templateUrl: './marcas.component.html',
   styleUrl: './marcas.component.scss',

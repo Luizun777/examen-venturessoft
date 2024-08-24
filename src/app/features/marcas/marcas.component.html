@@ -22,17 +22,21 @@
   <mat-spinner></mat-spinner>
 </div>
 } @else {
-<div class="grid-container">
+<div class="cards-container">
   @for (marca of marcasFilter; track $index) {
-  <app-marca [marca]="marca" />
+  <app-detail [marca]="marca" [isCashback]="false" />
   }
 </div>
 } @if (marcasFilter.length !== marcas.length) {
 <div class="contenido-btn">
-  <button mat-flat-button color="primary" (click)="allCoupons()">
-    MORE INSTANT COUPONS >
-  </button>
+  <btn-text-icon
+    [title]="'MORE INSTANT COUPONS'"
+    [icon]="'chevron_right'"
+    [color]="'primary'"
+    [matBtn]="false"
+    (click)="allCoupons()"
+  />
 </div>
 } @if ( marcas.length === 0 && !cargando) {
-  <h2 class="no-data">No se encontraron registros</h2>
+<h2 class="no-data">No se encontraron registros</h2>
 }
