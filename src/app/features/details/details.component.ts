@@ -3,10 +3,10 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpResponse } from '@core/interfaces/http.interface';
 import { Marca } from '@core/interfaces/marcas.interface';
 import { MarcasService } from '@core/services/marcas.service';
-import { environment } from '@environment/environment';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { forkJoin, Subscription } from 'rxjs';
 import { BtnTextIconComponent } from "@shared/components/btn-text-icon/btn-text-icon.component";
+import { CatUnlock } from '@shared/Catalogos/CatUnlockImages';
 
 @Component({
   selector: 'app-details',
@@ -44,7 +44,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
           }
           return <Marca>{
             ...this.marcaRandom(menuItems),
-            background: environment.catUnlock[index],
+            background: CatUnlock[index],
           };
         })
         .filter((marca: Marca | undefined) => marca) as Marca[];
