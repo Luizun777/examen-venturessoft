@@ -18,11 +18,7 @@ export class FooterComponent {
 
   catLanguage: CatalogGeneric[] = CatLanguage;
 
-  async loadLanguage(language: string) {
-    await this.translationSrv.loadTranslations(language);
-  }
-
-  selectLanguage({ value }: MatSelectChange): void {
-    this.loadLanguage(value);
+  async selectLanguage({ value }: MatSelectChange): Promise<void> {
+    await this.translationSrv.loadTranslations(value);
   }
 }
