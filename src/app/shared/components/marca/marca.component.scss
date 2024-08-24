@@ -16,15 +16,15 @@ p {
 .coupon-badge {
   display: inline-flex;
   align-items: center;
-  background-color: #fff3cd; // Color de fondo amarillo claro
-  color: #856404; // Color del texto
+  background-color: #fff3cd;
+  color: #856404;
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 14px;
 
   mat-icon {
-    margin-right: 5px; // Espacio entre el icono y el texto
+    margin-right: 5px;
   }
 }
 
