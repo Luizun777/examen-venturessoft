@@ -3,5 +3,6 @@ export const environment = {
   idMenuDefult: 'idMenu',
   languageKey: 'language',
   languageDefault: 'en',
-  gridkey: 'grid'
+  gridkey: 'grid',
+  emailKey: 'email'
 };

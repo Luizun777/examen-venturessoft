@@ -1,1 +1,89 @@
-<p>login works!</p>
+<div class="language-select">
+  <app-generic-select
+    [optionList]="catLanguage"
+    [currenValue]="translationSrv.getLanguageStorage"
+    (changeOption)="selectLanguage($event)"
+    icon="translate"
+    [title]="translations['language']"
+  />
+</div>
+
+<div class="auth-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title-login">{{
+        translations[isLogin ? "login-login" : "login-register"]
+      }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        @if (isLogin) {
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ translations["login-email"] }}</mat-label>
+          <input matInput formControlName="email" type="email" required />
+          @if (authForm.get('email')?.invalid && authForm.get('email')?.touched)
+          {
+          <mat-error> {{ translations["login-emailErrorHtml"] }} </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ translations["login-password"] }}</mat-label>
+          <input matInput formControlName="password" type="password" required />
+          @if (authForm.get('password')?.invalid &&
+          authForm.get('password')?.touched) {
+          <mat-error> {{ translations["login-passwordErrorHtml"] }} </mat-error>
+
+          }
+        </mat-form-field>
+        } @else {
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ translations["login-email"] }}</mat-label>
+          <input matInput formControlName="email" type="email" required />
+          @if (authForm.get('email')?.invalid && authForm.get('email')?.touched)
+          {
+          <mat-error> {{ translations["login-emailErrorHtml"] }} </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ translations["login-password"] }}</mat-label>
+          <input matInput formControlName="password" type="password" required />
+          @if (authForm.get('password')?.invalid &&
+          authForm.get('password')?.touched) {
+          <mat-error> {{ translations["login-passwordErrorHtml"] }} </mat-error>
+
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ translations["login-passwordComfirm"] }}</mat-label>
+          <input
+            matInput
+            formControlName="confirmPassword"
+            type="password"
+            required
+          />
+          @if (authForm.get('confirmPassword')?.touched &&
+          passwordMatchValidator) {
+          <mat-error>
+            {{ translations["login-passwordErrorMachHtml"] }}
+          </mat-error>
+          }
+        </mat-form-field>
+        }
+
+        <button mat-raised-button color="primary" type="submit">
+          {{ translations[isLogin ? "login-login" : "login-register"] }}
+        </button>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="toggleForm()">
+        {{
+          translations[isLogin ? "login-registerChange" : "login-loginChange"]
+        }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

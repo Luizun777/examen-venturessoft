@@ -35,5 +35,23 @@
     "badgeCashback": "Cashback",
     "badgeCoupon": "Instant Coupon",
     "btnCoupon": "Get Coupon"
+  },
+  "login": {
+    "login-login": "Login",
+    "login-register": "Register",
+    "login-email": "Email",
+    "login-emailErrorHtml": "Please enter a valid email",
+    "login-password": "Password",
+    "login-passwordComfirm": "Confirm Password",
+    "login-passwordErrorHtml": "Please enter a password",
+    "login-passwordErrorMachHtml": "Passwords do not match",
+    "login-loginChange": "Already have an account? Login",
+    "login-registerChange": "Don't have an account? Register",
+
+    "login-login-success": "Welcome",
+    "login-register-success": "Registration successful",
+
+    "login-login-error": "Login error",
+    "login-register-error": "Registration error"
   }
 }

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { LoginComponent as FeaturesLoginComponent } from '@features/login/login.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [FeaturesLoginComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
-export default class LoginComponent {
-
-}
+export default class LoginComponent {}

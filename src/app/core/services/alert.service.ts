@@ -13,4 +13,13 @@ export class AlertService {
       allowOutsideClick: false,
     });
   }
+
+  alertSuccess(html: string, title?: string): Promise<SweetAlertResult<any>> {
+    return Swal.fire({
+      title,
+      html,
+      icon: 'success',
+      allowOutsideClick: false,
+    } as any);
+  }
 }

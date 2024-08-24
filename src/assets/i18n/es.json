@@ -35,5 +35,23 @@
     "badgeCashback": "Bonificación",
     "badgeCoupon": "Cupón Instantáneo",
     "btnCoupon": "Obtener Cupón"
+  },
+  "login": {
+    "login-login": "Iniciar Sesión",
+    "login-register": "Registrar",
+    "login-email": "Correo Electrónico",
+    "login-emailErrorHtml": "Por favor, ingresa un email válido",
+    "login-password": "Contraseña",
+    "login-passwordComfirm": "Confirmar contraseña",
+    "login-passwordErrorHtml": "Por favor, ingresa una contraseña",
+    "login-passwordErrorMachHtml": "Las contraseñas no coinciden",
+    "login-loginChange": "¿Ya tienes cuenta? Inicia Sesión",
+    "login-registerChange": "¿No tienes cuenta? Regístrate",
+
+    "login-login-success": "Bienvenido",
+    "login-register-success": "Registro exitoso",
+
+    "login-login-error": "Error al iniciare sesión",
+    "login-register-error": "Error al registrase"
   }
 }
