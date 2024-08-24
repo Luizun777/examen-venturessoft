@@ -6,22 +6,29 @@ import { CatalogosService } from '@core/services/catalogos.service';
 import { environment } from '@environment/environment';
 import { MenuItemComponent } from '@shared/components/menu-item/menu-item.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { TranslationService } from '@core/services/translation.service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MenuItemComponent, MatProgressBarModule],
+  imports: [CommonModule, MenuItemComponent, MatProgressBarModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent implements OnInit {
   private catalogosSrv = inject(CatalogosService);
   private alertSrv = inject(AlertService);
+  private translationSrv = inject(TranslationService);
 
   menuItems: Categorias[] = [];
   cargando: boolean = true;
 
+  menu$: Observable<{ [key: string]: string }> = new Observable();
+
   ngOnInit(): void {
+    this.menu$ = this.translationSrv.getTranslationObject$('menu');
     this.getCategorias();
   }
 
