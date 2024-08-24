@@ -10,8 +10,8 @@ Puedes ver una demo del proyecto en funcionamiento en el siguiente enlace:
 
 ## Requisitos Previos
 
-- Node.js (versión 16 o superior)
-- npm (versión 7 o superior)
+- Node.js (versión 20 o superior)
+- npm (versión 10 o superior)
 - Angular CLI (versión 17 o superior)
 
 ## Instalación
