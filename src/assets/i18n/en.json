@@ -18,5 +18,10 @@
     "sortBy": "Sort By",
     "moreCoupons": "MORE INSTANT COUPONS",
     "errorFetch": "An error occurred while loading data."
+  },
+  "details": {
+    "title": "Unlock the full power of",
+    "linkYoCard": "LINK YOUR CARD",
+    "errorFetch": "An error occurred while loading data."
   }
 }

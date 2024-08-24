@@ -18,5 +18,10 @@
     "sortBy": "Ordenar por",
     "moreCoupons": "MÁS CUPONES INSTANTÁNEOS",
     "errorFetch": "Se ha producido un error al cargar datos."
+  },
+  "details": {
+    "title": "Desbloquea todo el poder de",
+    "linkYoCard": "VINCULA TU TARJETA",
+    "errorFetch": "Se ha producido un error al cargar datos."
   }
 }

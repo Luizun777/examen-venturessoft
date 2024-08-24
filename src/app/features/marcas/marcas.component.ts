@@ -36,7 +36,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   private marcasSrv = inject(MarcasService);
   private catalogosSrv = inject(CatalogosService);
   private alertSrv = inject(AlertService);
-  public translationSrv = inject(TranslationService);
+  private translationSrv = inject(TranslationService);
 
   marcas: Marca[] = [];
   marcasFilter: Marca[] = [];
@@ -48,7 +48,6 @@ export class MarcasComponent implements OnInit, OnDestroy {
   valueSort: number = 1;
 
   marcas$: Observable<{ [key: string]: string }> = new Observable();
-  errorSort: string = '';
 
   private marcasSub: Subscription = new Subscription();
   private listenSub: Subscription = new Subscription();
