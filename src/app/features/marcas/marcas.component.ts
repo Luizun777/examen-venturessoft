@@ -70,6 +70,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
         this.cargando = false;
         this.marcas = menuItems;
         this.marcasFilter = [...menuItems].splice(0, 7);
+        this.changeSortBy(this.valueSort);
       },
       () => {
         this.alertSrv.alertError('Se ha producido un error al cargar datos');
