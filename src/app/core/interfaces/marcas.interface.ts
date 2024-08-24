@@ -4,4 +4,5 @@ export interface Marcas {
   descripción?: string;
   descripcion?: string;
   imagen: string;
+  background?: string;
 }
