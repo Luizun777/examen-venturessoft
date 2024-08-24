@@ -11,5 +11,12 @@
     "termsConditions": "Términos y Condiciones",
     "privacyPolicy": "Política de Privacidad",
     "cookiePolicy": "Política de Cookies"
+  },
+  "marcas": {
+    "title": "Cupones Destacados Instantáneos",
+    "notFound": "No se encontraron registros",
+    "sortBy": "Ordenar por",
+    "moreCoupons": "MÁS CUPONES INSTANTÁNEOS",
+    "errorFetch": "Se ha producido un error al cargar datos."
   }
 }

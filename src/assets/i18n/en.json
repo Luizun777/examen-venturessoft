@@ -2,6 +2,7 @@
   "languiaje": "en",
   "header": {
     "login": "Log In",
+    "loginOut": "Log Out",
     "linkYoCard": "LINK YOUR CARD"
   },
   "footer": {
@@ -10,5 +11,12 @@
     "termsConditions": "Terms and Conditions",
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookie Policy"
+  },
+  "marcas": {
+    "title": "Featured Instant Coupons",
+    "notFound": "No records found.",
+    "sortBy": "Sort By",
+    "moreCoupons": "MORE INSTANT COUPONS",
+    "errorFetch": "An error occurred while loading data."
   }
 }
