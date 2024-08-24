@@ -19,9 +19,22 @@ Puedes ver una demo del proyecto en funcionamiento en el siguiente enlace:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/Luizun777/examen-venturessoft.git
+   cd  ExamenVenturessoft
    ```
 
-## Servidor de Desarrollo
+2. Instalación de dependencias:
 
-Ejecuta `ng serve` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en cualquiera de los archivos fuente.
+   ```bash
+   npm i
+   ```
+
+3. Levantar el proyecto:
+
+   ```bash
+   ng s
+   ```
+
+4. Levantar el proyecto:
+
+   `http://localhost:4200/`
