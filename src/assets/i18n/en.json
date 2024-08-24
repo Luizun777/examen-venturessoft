@@ -26,5 +26,9 @@
   },
   "menu": {
     "title": "Explorar Cupones Instantáneos"
+  },
+  "home": {
+    "title": "Link your business card to unlock cashback offers",
+    "linkYoCard": "LINK YOUR CARD"
   }
 }
