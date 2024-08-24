@@ -15,13 +15,13 @@ export const SortByMarcasEs: CatalogGeneric[] = [
   },
   {
     title: 'Descripción Asc',
-    key: 'descripcion',
+    key: 'descripción',
     orderBy: 'asc',
     value: 3
   },
   {
     title: 'Descripción Des',
-    key: 'descripcion',
+    key: 'descripción',
     orderBy: 'des',
     value: 4
   },

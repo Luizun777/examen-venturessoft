@@ -1,8 +1,7 @@
 export interface Marca {
   idItem: number;
   nombreMarca: string;
-  descripción?: string;
-  descripcion?: string;
+  descripción: string;
   imagen: string;
   background?: string;
 }
