@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpResponse } from '@core/interfaces/http.interface';
-import { Marcas } from '@core/interfaces/marcas.interface';
+import { Marca } from '@core/interfaces/marcas.interface';
 import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
 import { MarcasService } from '@core/services/marcas.service';
@@ -30,8 +30,8 @@ export class MarcasComponent implements OnInit, OnDestroy {
   private catalogosSrv = inject(CatalogosService);
   private alertSrv = inject(AlertService);
 
-  marcas: Marcas[] = [];
-  marcasFilter: Marcas[] = [];
+  marcas: Marca[] = [];
+  marcasFilter: Marca[] = [];
   cargando: boolean = true;
 
   private marcasSub: Subscription = new Subscription();
@@ -54,7 +54,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
     this.marcasFilter = [];
     this.cargando = true;
     this.marcasSub = this.marcasSrv.getMarcas().subscribe(
-      ({ codigo, menuItems, error, message }: HttpResponse<Marcas[]>) => {
+      ({ codigo, menuItems, error, message }: HttpResponse<Marca[]>) => {
         if (error) {
           this.alertSrv.alertError(`${message} ${codigo}`);
         }

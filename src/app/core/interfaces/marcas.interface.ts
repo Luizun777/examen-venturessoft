@@ -1,4 +1,4 @@
-export interface Marcas {
+export interface Marca {
   idItem: number;
   nombreMarca: string;
   descripción?: string;
