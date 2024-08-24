@@ -1,0 +1,16 @@
+<div class="btn-filtros">
+  <button
+    mat-mini-fab
+    [color]="!showGrid ? 'primary' : ''"
+    (click)="changeGrid(false)"
+  >
+    <mat-icon>format_list_bulleted</mat-icon>
+  </button>
+  <button
+    mat-mini-fab
+    [color]="showGrid ? 'primary' : ''"
+    (click)="changeGrid(true)"
+  >
+    <mat-icon>grid_view</mat-icon>
+  </button>
+</div>
