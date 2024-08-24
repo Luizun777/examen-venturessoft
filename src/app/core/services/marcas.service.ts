@@ -13,10 +13,13 @@ export class MarcasService {
   private http = inject(HttpClient);
   private mapingSrv = inject(MapingService);
 
-  getMarcas(): Observable<HttpResponse<Marcas[]>> {
-    const idMenu = localStorage.getItem(environment.idMenuDefult) ?? 0;
+  getMarcas(idMenu?: number): Observable<HttpResponse<Marcas[]>> {
+    idMenu = idMenu ??=
+      Number(localStorage.getItem(environment.idMenuDefult)) ?? 0;
     return this.http
-      .get<HttpResponse<Marcas[]>>(`${environment.apiServer}Marcas?idMenu=${idMenu}`)
+      .get<HttpResponse<Marcas[]>>(
+        `${environment.apiServer}Marcas?idMenu=${idMenu}`
+      )
       .pipe(
         map((response: HttpResponse<Marcas[]>) => ({
           ...response,
