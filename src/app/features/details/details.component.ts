@@ -6,7 +6,7 @@ import { MarcasService } from '@core/services/marcas.service';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { forkJoin, Subscription } from 'rxjs';
 import { BtnTextIconComponent } from "@shared/components/btn-text-icon/btn-text-icon.component";
-import { CatUnlock } from '@shared/Catalogos/CatUnlockImages';
+import { CatUnlock } from '@shared/catalogos/CatUnlockImages';
 
 @Component({
   selector: 'app-details',

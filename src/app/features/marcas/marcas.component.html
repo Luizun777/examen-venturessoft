@@ -1,33 +1,27 @@
 <div class="contenido-filter">
   <h2>Featured Instant Coupons ({{ marcas.length }})</h2>
   <div class="btn-filtros">
-    <button mat-icon-button>
-      <mat-icon>format_list_bulleted</mat-icon>
-    </button>
-    <button mat-mini-fab color="primary">
-      <mat-icon>grid_view</mat-icon>
-    </button>
-    <mat-form-field>
-      <mat-label>SORT BY</mat-label>
-      <mat-select>
-        <mat-option value="option1">Option 1</mat-option>
-        <mat-option value="option2">Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <app-change-grid [showGrid]="showGrid" (emitChange)="marcasGrid($event)" />
+    <app-sort-by
+      [optionList]="sortByList"
+      (changeOption)="changeSortBy($event)"
+      [valueSort]="valueSort"
+    />
   </div>
 </div>
 @if (cargando) {
 <div class="contenido-loader">
   <mat-spinner></mat-spinner>
 </div>
-} @else {
+} @else { @if (showGrid) {
 <div class="cards-container">
   @for (marca of marcasFilter; track $index) {
   <app-detail [marca]="marca" [isCashback]="false" />
   }
 </div>
-} @if (marcasFilter.length !== marcas.length) {
+} @else { @for (marca of marcasFilter; track $index) {
+<app-detail-row />
+} } } @if (marcasFilter.length !== marcas.length) {
 <div class="contenido-btn">
   <btn-text-icon
     [title]="'MORE INSTANT COUPONS'"
