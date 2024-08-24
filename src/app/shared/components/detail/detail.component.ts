@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Marca } from '@core/interfaces/marcas.interface';
@@ -9,7 +8,7 @@ import { BtnTextIconComponent } from "../btn-text-icon/btn-text-icon.component";
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, MatIconModule, MatTooltipModule, BtnTextIconComponent],
+  imports: [MatCardModule, MatIconModule, MatTooltipModule, BtnTextIconComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })

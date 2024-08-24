@@ -11,7 +11,7 @@ import { environment } from '@environment/environment';
 import { Subscription } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DetailComponent } from '@shared/components/detail/detail.component';
-import { BtnTextIconComponent } from '../../shared/components/btn-text-icon/btn-text-icon.component';
+import { BtnTextIconComponent } from '@shared/components/btn-text-icon/btn-text-icon.component';
 
 @Component({
   selector: 'app-marcas',

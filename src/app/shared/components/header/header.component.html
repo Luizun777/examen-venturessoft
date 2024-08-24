@@ -1,6 +1,11 @@
 <header class="container">
   <div class="buttons">
-    <button mat-stroked-button>Log In</button>
-    <button mat-flat-button color="primary">LINK YOUR CARD ></button>
+    <btn-text-icon [title]="'Log In'" [icon]="'chevron_right'" />
+    <btn-text-icon
+      [title]="'LINK YOUR CARD'"
+      [icon]="'chevron_right'"
+      [matBtn]="false"
+      color="primary"
+    />
   </div>
 </header>

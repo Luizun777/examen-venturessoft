@@ -1,5 +1,4 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpResponse } from '@core/interfaces/http.interface';
 import { Marca } from '@core/interfaces/marcas.interface';
@@ -7,11 +6,12 @@ import { MarcasService } from '@core/services/marcas.service';
 import { environment } from '@environment/environment';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { forkJoin, Subscription } from 'rxjs';
+import { BtnTextIconComponent } from "@shared/components/btn-text-icon/btn-text-icon.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, DetailComponent],
+  imports: [MatCardModule, DetailComponent, BtnTextIconComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
 })
