@@ -2,7 +2,7 @@
   @if (isCashback) {
   <div class="floating-image">
     <img
-      [src]="marca.imagen || 'assets/images/no-image.jpg'"
+      [src]="marca.imagen || 'assets/images/no-image.webp'"
       [alt]="marca.nombreMarca"
       class="circular-image"
       [matTooltip]="marca.nombreMarca"
@@ -11,7 +11,7 @@
   }
   <img
     mat-card-image
-    [src]="background || 'assets/images/no-image.jpg'"
+    [src]="background || 'assets/images/no-image.webp'"
     [alt]="marca.nombreMarca"
     class="card-image"
   />

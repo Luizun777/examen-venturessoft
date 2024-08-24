@@ -25,9 +25,8 @@ export class DetailComponent implements OnInit, OnDestroy {
   @Input() marca: Marca = {} as Marca;
   @Input() isCashback: boolean = true;
 
-  translations: any = {};
-
   private translationSub: Subscription = new Subscription();
+  translations: any = {};
 
   ngOnInit(): void {
     this.translationSub = this.translationSrv.translations.subscribe(
