@@ -11,9 +11,10 @@
     </span>
     <mat-form-field>
       <mat-label>Basic native select</mat-label>
-      <mat-select>
-        <mat-option value="option1">English</mat-option>
-        <mat-option value="option2">Español</mat-option>
+      <mat-select (selectionChange)="selectLanguage($event)" [value]="translationSrv.getLanguageStorage">
+        @for (item of catLanguage; track $index) {
+          <mat-option [value]="item.value">{{item.title}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
   </div>
