@@ -1,0 +1,15 @@
+<div class="select-content">
+  @if (icon) {
+  <span class="icon">
+    <mat-icon>{{ icon }}</mat-icon>
+  </span>
+  }
+  <mat-form-field>
+    <mat-label>{{ title }}</mat-label>
+    <mat-select (valueChange)="changeValue($event)" [(value)]="currenValue">
+      @for (option of optionList; track $index) {
+      <mat-option [value]="option.value">{{ option.title }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
