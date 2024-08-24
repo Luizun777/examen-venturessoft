@@ -1,4 +1,5 @@
 <mat-card class="custom-card">
+  @if (isCashback) {
   <div class="floating-image">
     <img
       [src]="marca.imagen || 'assets/images/no-image.jpg'"
@@ -7,18 +8,24 @@
       [matTooltip]="marca.nombreMarca"
     />
   </div>
+  }
   <img
     mat-card-image
-    [src]="marca.background || 'assets/images/no-image.jpg'"
+    [src]="background || 'assets/images/no-image.jpg'"
     [alt]="marca.nombreMarca"
     class="card-image"
   />
   <mat-card-content>
-    <div class="card-badge">
-      <mat-icon>local_atm</mat-icon>
-      <span class="badge-text">Cashback</span>
+    <div [class]="'floating-card' + badgeClass">
+      <mat-icon>{{ badgeIcon }}</mat-icon>
+      <span class="badge-text">{{ badgeTitle }}</span>
     </div>
     <p>{{ marca.nombreMarca }}</p>
     <h3>{{ marca.descripcion }}</h3>
   </mat-card-content>
+  @if (!isCashback) {
+  <mat-card-actions>
+    <btn-text-icon [title]="'Get Coupon'" [icon]="'chevron_right'" />
+  </mat-card-actions>
+  }
 </mat-card>

@@ -1,14 +1,15 @@
 .custom-card {
   width: 300px;
-  min-height: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   margin: 15px;
   background-color: white;
   position: relative;
   overflow: hidden;
+  flex-grow: 1;
 
   .card-image {
     width: 100%;
@@ -29,6 +30,11 @@
 
 mat-card-content {
   position: relative;
+}
+
+mat-card-actions {
+  margin-top: auto;
+  margin-bottom: 1rem;
 }
 
 h3 {
@@ -58,20 +64,28 @@ h3 {
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.4);
 }
 
-.card-badge {
+.floating-card {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   position: absolute;
   overflow: hidden;
-  background-color: #e3f2fd;
-  color: #007bff;
   border-radius: 12px;
   padding: 5px 10px;
   margin: 10px 0;
   font-size: 16px;
   top: -1.5rem;
   z-index: 999;
+}
+
+.card-badge {
+  background-color: #e3f2fd;
+  color: #007bff;
+}
+
+.coupon-badge {
+  background-color: #fff3cd;
+  color: #856404;
 }
 
 @media (max-width: 1200px) {
