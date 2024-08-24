@@ -1,8 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { BtnTextIconComponent } from '../btn-text-icon/btn-text-icon.component';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { TranslationService } from '@core/services/translation.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { environment } from '@environment/environment';
+import { AlertService } from '@core/services/alert.service';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +14,34 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   private translationSrv = inject(TranslationService);
+  private alertSrv = inject(AlertService);
+  public router = inject(Router);
 
-  header$: Observable<{ [key: string]: string }> = new Observable();
+  private translationSub: Subscription = new Subscription();
+  translations: any = {};
 
   ngOnInit(): void {
-    this.header$ = this.translationSrv.getTranslationObject$('header');
+    this.translationSub = this.translationSrv.translations.subscribe(
+      (translations: any) =>
+        (this.translations = {
+          ...translations['header'],
+          ...translations['login'],
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.translationSub.unsubscribe();
+  }
+
+  get userSession(): string {
+    return localStorage.getItem(environment.emailKey) ?? '';
+  }
+
+  logOut(): void {
+    localStorage.removeItem(environment.emailKey);
+    this.alertSrv.alertSuccess(this.translations['header-loginOutMessage']);
   }
 }

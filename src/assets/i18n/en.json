@@ -1,9 +1,10 @@
 {
   "languiaje": "en",
   "header": {
-    "login": "Log In",
-    "loginOut": "Log Out",
-    "linkYoCard": "LINK YOUR CARD"
+    "header-login": "Log In",
+    "header-loginOut": "Log Out",
+    "header-linkYoCard": "LINK YOUR CARD",
+    "header-loginOutMessage": "Session closed"
   },
   "footer": {
     "language": "Change language",

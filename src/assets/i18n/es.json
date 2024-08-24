@@ -1,9 +1,10 @@
 {
   "languiaje": "es",
   "header": {
-    "login": "Iniciar sesión",
-    "loginOut": "Cerra sesión",
-    "linkYoCard": "VINCULA TU TARJETA"
+    "header-login": "Iniciar sesión",
+    "header-loginOut": "Cerra sesión",
+    "header-linkYoCard": "VINCULA TU TARJETA",
+    "header-loginOutMessage": "Sesión cerrada"
   },
   "footer": {
     "language": "Cambiar idioma",

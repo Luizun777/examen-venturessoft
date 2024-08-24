@@ -1,8 +1,27 @@
 <header class="container">
+  <h2>
+  @if (userSession) { 
+    {{ translations['login-login-success'] }}
+    {{ userSession }}
+  }
+  </h2>
+
   <div class="buttons">
-    <btn-text-icon [title]="(header$ | async)?.['login'] ?? ''" [icon]="'chevron_right'" />
+    @if (userSession) {
     <btn-text-icon
-      [title]="(header$ | async)?.['linkYoCard'] ?? ''"
+      [title]="translations['header-loginOut']"
+      [icon]="'chevron_right'"
+      (click)="logOut()"
+    />
+    } @else {
+    <btn-text-icon
+      [title]="translations['header-login']"
+      [icon]="'chevron_right'"
+      (click)="router.navigate(['/login'])"
+    />
+    }
+    <btn-text-icon
+      [title]="translations['header-linkYoCard']"
       [icon]="'chevron_right'"
       [matBtn]="false"
       color="primary"
