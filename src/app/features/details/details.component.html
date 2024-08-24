@@ -1,0 +1,13 @@
+<div class="container-details">
+  <h1 class="header">Unlock the full power of</h1>
+
+  <div class="cards-container">
+    @for (marca of marcas; track $index) {
+    <app-detail [marca]="marca" />
+    }
+  </div>
+
+  <button mat-raised-button color="primary" class="link-button">
+    LINK YOUR CARD >
+  </button>
+</div>
