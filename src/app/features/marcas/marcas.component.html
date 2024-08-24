@@ -4,7 +4,11 @@
     <app-change-grid [showGrid]="showGrid" (emitChange)="marcasGrid($event)" />
     <app-generic-select
       [title]="(marcas$ | async)?.['sortBy'] ?? ''"
-      [optionList]="sortByList"
+      [optionList]="
+        ((languiaje$ | async) ?? '') === languageDefault
+          ? sortByListEn
+          : sortByListEs
+      "
       (changeOption)="changeSortBy($event)"
       [currenValue]="valueSort"
     />

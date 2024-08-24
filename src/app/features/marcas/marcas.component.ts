@@ -11,7 +11,10 @@ import { DetailComponent } from '@shared/components/detail/detail.component';
 import { BtnTextIconComponent } from '@shared/components/btn-text-icon/btn-text-icon.component';
 import { DetailRowComponent } from '@shared/components/detail-row/detail-row.component';
 import { ChangeGridComponent } from '@shared/components/change-grid/change-grid.component';
-import { SortByMarcasEs } from '@shared/catalogos/CatSortByMarcas';
+import {
+  SortByMarcasEn,
+  SortByMarcasEs,
+} from '@shared/catalogos/CatSortByMarcas';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
 import { GenericSelectComponent } from '@shared/components/generic-select/generic-select.component';
 import { TranslationService } from '@core/services/translation.service';
@@ -40,21 +43,25 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   marcas: Marca[] = [];
   marcasFilter: Marca[] = [];
-  sortByList: CatalogGeneric[] = SortByMarcasEs;
+  sortByListEs: CatalogGeneric[] = SortByMarcasEs;
+  sortByListEn: CatalogGeneric[] = SortByMarcasEn;
 
   cargando: boolean = true;
   showGrid: boolean = true;
 
   valueSort: number = 1;
 
+  languageDefault: string = environment.languageDefault;
+
   marcas$: Observable<{ [key: string]: string }> = new Observable();
+  languiaje$: Observable<string> = new Observable();
 
   private marcasSub: Subscription = new Subscription();
   private listenSub: Subscription = new Subscription();
 
   async ngOnInit(): Promise<void> {
     this.marcas$ = this.translationSrv.getTranslationObject$('marcas');
-    const mensaje = await firstValueFrom(this.marcas$);
+    this.languiaje$ = this.translationSrv.getTranslationObject$('languiaje');
     if (Boolean(localStorage.getItem(environment.idMenuDefult))) {
       this.getMarcas();
     }
@@ -107,7 +114,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   changeSortBy(valueSort: number): void {
     this.valueSort = Number(valueSort);
     const { key, orderBy }: CatalogGeneric =
-      this.sortByList.find(({ value }) => value === valueSort) ??
+      this.sortByListEn.find(({ value }) => value === valueSort) ??
       ({} as CatalogGeneric);
     this.marcasFilter = this.ordenarLista(
       this.marcasFilter,
