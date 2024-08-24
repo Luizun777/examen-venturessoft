@@ -3,5 +3,12 @@
   "header": {
     "login": "Log In",
     "linkYoCard": "LINK YOUR CARD"
+  },
+  "footer": {
+    "language": "Change language",
+    "contactSupport": "Contact Support",
+    "termsConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy"
   }
 }

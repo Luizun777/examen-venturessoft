@@ -1,21 +1,15 @@
 <footer class="footer">
   <div class="footer-links">
-    <a href="#">Contact Support</a>
-    <a href="#">Terms and Conditions</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Cookie Policy</a>
+    <a href="#">{{(footer$ | async)?.['contactSupport'] ?? ''}}</a>
+    <a href="#">{{(footer$ | async)?.['termsConditions'] ?? ''}}</a>
+    <a href="#">{{(footer$ | async)?.['privacyPolicy'] ?? ''}}</a>
+    <a href="#">{{(footer$ | async)?.['cookiePolicy'] ?? ''}}</a>
   </div>
-  <div class="footer-right">
-    <span class="icon">
-      <mat-icon fontIcon="translate"></mat-icon>
-    </span>
-    <mat-form-field>
-      <mat-label>Basic native select</mat-label>
-      <mat-select (selectionChange)="selectLanguage($event)" [value]="translationSrv.getLanguageStorage">
-        @for (item of catLanguage; track $index) {
-          <mat-option [value]="item.value">{{item.title}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div>
+  <app-generic-select
+    [optionList]="catLanguage"
+    [currenValue]="translationSrv.getLanguageStorage"
+    (changeOption)="selectLanguage($event)"
+    icon="translate"
+    [title]="(footer$ | async)?.['language'] ?? ''"
+  />
 </footer>

@@ -12,11 +12,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  private translationSrgv = inject(TranslationService);
+  private translationSrv = inject(TranslationService);
 
   header$: Observable<{ [key: string]: string }> = new Observable();
 
   ngOnInit(): void {
-    this.header$ = this.translationSrgv.getTranslationObject$('header');
+    this.header$ = this.translationSrv.getTranslationObject$('header');
   }
 }

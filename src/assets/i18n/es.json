@@ -4,5 +4,12 @@
     "login": "Iniciar sesión",
     "loginOut": "Cerra sesión",
     "linkYoCard": "VINCULA TU TARJETA"
+  },
+  "footer": {
+    "language": "Cambiar idioma",
+    "contactSupport": "Contactar Soporte",
+    "termsConditions": "Términos y Condiciones",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies"
   }
 }
