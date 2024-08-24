@@ -14,7 +14,7 @@ import { ChangeGridComponent } from '@shared/components/change-grid/change-grid.
 import {
   SortByMarcasEn,
   SortByMarcasEs,
-} from '@shared/catalogos/CatSortByMarcas';
+} from 'src/assets/catalogos/CatSortByMarcas';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
 import { GenericSelectComponent } from '@shared/components/generic-select/generic-select.component';
 import { TranslationService } from '@core/services/translation.service';

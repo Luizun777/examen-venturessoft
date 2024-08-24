@@ -6,7 +6,7 @@ import { MarcasService } from '@core/services/marcas.service';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { firstValueFrom, forkJoin, Observable, Subscription } from 'rxjs';
 import { BtnTextIconComponent } from '@shared/components/btn-text-icon/btn-text-icon.component';
-import { CatUnlock } from '@shared/catalogos/CatUnlockImages';
+import { CatUnlock } from 'src/assets/catalogos/CatUnlockImages';
 import { TranslationService } from '@core/services/translation.service';
 import { AlertService } from '@core/services/alert.service';
 import { CommonModule } from '@angular/common';

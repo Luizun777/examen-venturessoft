@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TranslationService } from '@core/services/translation.service';
-import { CatLanguage } from '@shared/catalogos/CatLanguage';
+import { CatLanguage } from 'src/assets/catalogos/CatLanguage';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
 import { CommonModule } from '@angular/common';
 import { GenericSelectComponent } from '../generic-select/generic-select.component';

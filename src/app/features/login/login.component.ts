@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { GenericSelectComponent } from '@shared/components/generic-select/generic-select.component';
 import { TranslationService } from '@core/services/translation.service';
 import { Subscription } from 'rxjs';
-import { CatLanguage } from '@shared/catalogos/CatLanguage';
+import { CatLanguage } from 'src/assets/catalogos/CatLanguage';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
 import { AlertService } from '@core/services/alert.service';
 import { Router } from '@angular/router';
