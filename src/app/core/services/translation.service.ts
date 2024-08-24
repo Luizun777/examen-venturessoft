@@ -6,7 +6,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TranslationService {
-  private translations = new BehaviorSubject<{
+  translations = new BehaviorSubject<{
     [key: string]: string | { [key: string]: any };
   }>({});
   currentTranslations = this.translations.asObservable();

@@ -30,5 +30,10 @@
   "home": {
     "title": "Link your business card to unlock cashback offers",
     "linkYoCard": "LINK YOUR CARD"
+  },
+  "detail": {
+    "badgeCashback": "Cashback",
+    "badgeCoupon": "Instant Coupon",
+    "btnCoupon": "Get Coupon"
   }
 }

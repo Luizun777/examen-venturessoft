@@ -55,7 +55,6 @@ export class MarcasComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     this.marcas$ = this.translationSrv.getTranslationObject$('marcas');
     const mensaje = await firstValueFrom(this.marcas$);
-    console.log(mensaje['errorFetch']);
     if (Boolean(localStorage.getItem(environment.idMenuDefult))) {
       this.getMarcas();
     }
