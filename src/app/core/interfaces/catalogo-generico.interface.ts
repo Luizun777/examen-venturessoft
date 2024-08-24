@@ -1,6 +1,6 @@
 export interface CatalogGeneric {
   title: string;
-  value: number;
+  value: number | string;
   orderBy?: string;
   key?: string;
 }
