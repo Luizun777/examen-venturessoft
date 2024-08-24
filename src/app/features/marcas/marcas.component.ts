@@ -5,26 +5,29 @@ import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
 import { MarcasService } from '@core/services/marcas.service';
 import { environment } from '@environment/environment';
-import { Subscription } from 'rxjs';
+import { firstValueFrom, Observable, Subscription } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { BtnTextIconComponent } from '@shared/components/btn-text-icon/btn-text-icon.component';
 import { DetailRowComponent } from '@shared/components/detail-row/detail-row.component';
 import { ChangeGridComponent } from '@shared/components/change-grid/change-grid.component';
-import { SortByComponent } from '@shared/components/sort-by/sort-by.component';
 import { SortByMarcasEs } from '@shared/catalogos/CatSortByMarcas';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
+import { GenericSelectComponent } from '@shared/components/generic-select/generic-select.component';
+import { TranslationService } from '@core/services/translation.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-marcas',
   standalone: true,
   imports: [
+    CommonModule,
     MatProgressSpinnerModule,
     DetailComponent,
     BtnTextIconComponent,
     DetailRowComponent,
     ChangeGridComponent,
-    SortByComponent,
+    GenericSelectComponent,
   ],
   templateUrl: './marcas.component.html',
   styleUrl: './marcas.component.scss',
@@ -33,6 +36,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   private marcasSrv = inject(MarcasService);
   private catalogosSrv = inject(CatalogosService);
   private alertSrv = inject(AlertService);
+  public translationSrv = inject(TranslationService);
 
   marcas: Marca[] = [];
   marcasFilter: Marca[] = [];
@@ -43,10 +47,16 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   valueSort: number = 1;
 
+  marcas$: Observable<{ [key: string]: string }> = new Observable();
+  errorSort: string = '';
+
   private marcasSub: Subscription = new Subscription();
   private listenSub: Subscription = new Subscription();
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.marcas$ = this.translationSrv.getTranslationObject$('marcas');
+    const mensaje = await firstValueFrom(this.marcas$);
+    console.log(mensaje['errorFetch']);
     if (Boolean(localStorage.getItem(environment.idMenuDefult))) {
       this.getMarcas();
     }
@@ -72,8 +82,9 @@ export class MarcasComponent implements OnInit, OnDestroy {
         this.marcasFilter = [...menuItems].splice(0, 7);
         this.changeSortBy(this.valueSort);
       },
-      () => {
-        this.alertSrv.alertError('Se ha producido un error al cargar datos');
+      async () => {
+        const mensaje = await firstValueFrom(this.marcas$);
+        this.alertSrv.alertError(mensaje['errorFetch']);
         this.cargando = false;
       }
     );
@@ -107,15 +118,15 @@ export class MarcasComponent implements OnInit, OnDestroy {
     );
   }
 
-  ordenarLista(objetos: Marca[], propiedad: string, orden: string = 'asc') {
-    return objetos.sort((a: any, b: any) => {
-      if (orden === 'asc') {
-        return a[propiedad].localeCompare(b[propiedad]);
-      } else if (orden === 'des') {
-        return b[propiedad].localeCompare(a[propiedad]);
-      } else {
-        console.error(`Orden no válido. Usa 'asc' o 'des'.`);
-      }
-    });
+  ordenarLista(
+    objetos: Marca[],
+    propiedad: string,
+    orden: string = 'asc'
+  ): Marca[] {
+    return objetos.sort((a: any, b: any) =>
+      orden === 'asc'
+        ? a[propiedad].localeCompare(b[propiedad])
+        : b[propiedad].localeCompare(a[propiedad])
+    );
   }
 }

@@ -1,11 +1,12 @@
 <div class="contenido-filter">
-  <h2>Featured Instant Coupons ({{ marcas.length }})</h2>
+  <h2>{{(marcas$ | async)?.['title'] ?? ''}} ({{ marcas.length }})</h2>
   <div class="btn-filtros">
     <app-change-grid [showGrid]="showGrid" (emitChange)="marcasGrid($event)" />
-    <app-sort-by
+    <app-generic-select
+      [title]="(marcas$ | async)?.['sortBy'] ?? ''"
       [optionList]="sortByList"
       (changeOption)="changeSortBy($event)"
-      [valueSort]="valueSort"
+      [currenValue]="valueSort"
     />
   </div>
 </div>
@@ -24,7 +25,7 @@
 } } } @if (marcasFilter.length !== marcas.length) {
 <div class="contenido-btn">
   <btn-text-icon
-    [title]="'MORE INSTANT COUPONS'"
+    [title]="(marcas$ | async)?.['moreCoupons'] ?? ''"
     [icon]="'chevron_right'"
     [color]="'primary'"
     [matBtn]="false"
@@ -32,5 +33,5 @@
   />
 </div>
 } @if ( marcas.length === 0 && !cargando) {
-<h2 class="no-data">No se encontraron registros</h2>
+<h2 class="no-data">{{(marcas$ | async)?.['notFound'] ?? ''}}</h2>
 }
