@@ -86,6 +86,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
         this.marcas = menuItems;
         this.marcasFilter = [...menuItems].splice(0, 7);
         this.changeSortBy(this.valueSort);
+        this.showGrid = this.persistGrid;
       },
       async () => {
         const mensaje = await firstValueFrom(this.marcas$);
@@ -109,6 +110,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   marcasGrid(grid: boolean = true): void {
     this.showGrid = grid;
+    localStorage.setItem(environment.gridkey, String(grid));
   }
 
   changeSortBy(valueSort: number): void {
@@ -133,5 +135,12 @@ export class MarcasComponent implements OnInit, OnDestroy {
         ? a[propiedad].localeCompare(b[propiedad])
         : b[propiedad].localeCompare(a[propiedad])
     );
+  }
+
+  get persistGrid(): boolean {
+    if (!localStorage.getItem(environment.gridkey)) {
+      localStorage.setItem(environment.gridkey, 'true');
+    }
+    return localStorage.getItem(environment.gridkey) === 'true';
   }
 }
