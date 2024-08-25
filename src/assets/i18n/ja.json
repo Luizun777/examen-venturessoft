@@ -1,0 +1,62 @@
+{
+  "languiaje": "ja",
+  "header": {
+    "header-login": "ログイン",
+    "header-loginOut": "ログアウト",
+    "header-linkYoCard": "カードをリンクする",
+    "header-loginOutMessage": "ログアウトしました"
+  },
+  "footer": {
+    "language": "言語を変更",
+    "contactSupport": "サポートに連絡",
+    "termsConditions": "利用規約",
+    "privacyPolicy": "プライバシーポリシー",
+    "cookiePolicy": "クッキーポリシー"
+  },
+  "marcas": {
+    "title": "おすすめクーポン",
+    "notFound": "レコードが見つかりません",
+    "sortBy": "並び替え",
+    "moreCoupons": "さらにクーポンを表示",
+    "errorFetch": "データの取得中にエラーが発生しました。"
+  },
+  "details": {
+    "title": "全機能を解除",
+    "linkYoCard": "カードをリンクする",
+    "errorFetch": "データの取得中にエラーが発生しました。"
+  },
+  "menu": {
+    "title": "クーポンを探す"
+  },
+  "home": {
+    "title": "企業カードをリンクしてボーナスを解除",
+    "linkYoCard": "カードをリンクする"
+  },
+  "detail": {
+    "badgeCashback": "キャッシュバック",
+    "badgeCoupon": "クーポン",
+    "btnCoupon": "クーポンを取得"
+  },
+  "login": {
+    "login-login": "ログイン",
+    "login-register": "登録",
+    "login-email": "メールアドレス",
+    "login-emailErrorHtml": "有効なメールアドレスを入力してください",
+    "login-password": "パスワード",
+    "login-passwordComfirm": "パスワードの確認",
+    "login-passwordErrorHtml": "パスワードを入力してください",
+    "login-passwordErrorMachHtml": "パスワードが一致しません",
+    "login-loginChange": "アカウントをお持ちですか？ログイン",
+    "login-registerChange": "アカウントをお持ちでないですか？登録する",
+
+    "login-login-success": "ようこそ",
+    "login-register-success": "登録成功",
+
+    "login-login-error": "ログインエラー",
+    "login-register-error": "登録エラー"
+  },
+  "tabla": {
+    "tabla-noYoLink": "カードリンクは不要です",
+    "tabla-yoLink": "カードをリンクして取得"
+  }
+}

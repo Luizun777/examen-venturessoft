@@ -1,0 +1,19 @@
+[
+  { "description": "Instant Coupons", "noCardLinking": true, "linkCard": true },
+  {
+    "description": "Full access to Visa Savings Edge benefits",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  {
+    "description": "Cashback tracking",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  {
+    "description": "Merchant location search",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  { "description": "Cashback offers", "noCardLinking": false, "linkCard": true }
+]

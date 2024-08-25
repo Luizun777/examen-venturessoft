@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Cupones instantáneos",
+    "noCardLinking": true,
+    "linkCard": true
+  },
+  {
+    "description": "Acceso completo a los beneficios de Visa Savings Edge",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  {
+    "description": "Seguimiento de reembolsos",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  {
+    "description": "Búsqueda de ubicación de comerciantes",
+    "noCardLinking": false,
+    "linkCard": true
+  },
+  {
+    "description": "Ofertas de reembolso",
+    "noCardLinking": false,
+    "linkCard": true
+  }
+]

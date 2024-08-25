@@ -9,4 +9,8 @@ export const CatLanguage: CatalogGeneric[] = [
     title: 'English',
     value: 'en',
   },
+  {
+    title: 'Japanese',
+    value: 'ja',
+  },
 ];
