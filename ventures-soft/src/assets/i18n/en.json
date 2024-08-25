@@ -1,0 +1,62 @@
+{
+  "languiaje": "en",
+  "header": {
+    "header-login": "Log In",
+    "header-loginOut": "Log Out",
+    "header-linkYoCard": "LINK YOUR CARD",
+    "header-loginOutMessage": "Session closed"
+  },
+  "footer": {
+    "language": "Change language",
+    "contactSupport": "Contact Support",
+    "termsConditions": "Terms and Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "marcas": {
+    "title": "Featured Instant Coupons",
+    "notFound": "No records found.",
+    "sortBy": "Sort By",
+    "moreCoupons": "MORE INSTANT COUPONS",
+    "errorFetch": "An error occurred while loading data."
+  },
+  "details": {
+    "title": "Unlock the full power of",
+    "linkYoCard": "LINK YOUR CARD",
+    "errorFetch": "An error occurred while loading data."
+  },
+  "menu": {
+    "title": "Explorar Cupones Instantáneos"
+  },
+  "home": {
+    "title": "Link your business card to unlock cashback offers",
+    "linkYoCard": "LINK YOUR CARD"
+  },
+  "detail": {
+    "badgeCashback": "Cashback",
+    "badgeCoupon": "Instant Coupon",
+    "btnCoupon": "Get Coupon"
+  },
+  "login": {
+    "login-login": "Login",
+    "login-register": "Register",
+    "login-email": "Email",
+    "login-emailErrorHtml": "Please enter a valid email",
+    "login-password": "Password",
+    "login-passwordComfirm": "Confirm Password",
+    "login-passwordErrorHtml": "Please enter a password",
+    "login-passwordErrorMachHtml": "Passwords do not match",
+    "login-loginChange": "Already have an account? Login",
+    "login-registerChange": "Don't have an account? Register",
+
+    "login-login-success": "Welcome",
+    "login-register-success": "Registration successful",
+
+    "login-login-error": "Login error",
+    "login-register-error": "Registration error"
+  },
+  "tabla": {
+    "tabla-noYoLink": "No card linking required",
+    "tabla-yoLink": "Link your card to get"
+  }
+}

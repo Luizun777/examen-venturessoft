@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiServer: 'https://eland-dk.humaneland.net/Examen/AngularApi/',
+  idMenuDefult: 'idMenu',
+  languageKey: 'language',
+  languageDefault: 'en',
+  gridkey: 'grid',
+  emailKey: 'email',
 };
 
 /*
