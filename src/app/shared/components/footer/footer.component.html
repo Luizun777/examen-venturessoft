@@ -5,11 +5,18 @@
     <a href="#">{{(footer$ | async)?.['privacyPolicy'] ?? ''}}</a>
     <a href="#">{{(footer$ | async)?.['cookiePolicy'] ?? ''}}</a>
   </div>
-  <app-generic-select
-    [optionList]="catLanguage"
-    [currenValue]="translationSrv.getLanguageStorage"
-    (changeOption)="selectLanguage($event)"
-    icon="translate"
-    [title]="(footer$ | async)?.['language'] ?? ''"
-  />
+  <div class="contenido-action">
+    <app-generic-select
+      [optionList]="catLanguage"
+      [currenValue]="translationSrv.getLanguageStorage"
+      (changeOption)="selectLanguage($event)"
+      icon="translate"
+      [title]="(footer$ | async)?.['language'] ?? ''"
+    />
+    <img
+      src="assets/images/app/andorid.jpg"
+      alt="andorid"
+      (click)="downloadApk()"
+    />
+  </div>
 </footer>

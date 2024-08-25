@@ -2,16 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 4rem 20px;
   background-color: #f1f2f6;
   border-top: 1px solid #e0e0e0;
-  height: 10rem;
-  margin-top: 3rem;
+  gap: 2rem;
 
   .footer-links {
     display: flex;
     gap: 20px;
     font-size: 14px;
+    place-self: flex-start;
 
     a {
       color: #6c757d;
@@ -48,5 +48,15 @@
     .footer-right {
       justify-content: center;
     }
+  }
+}
+
+.contenido-action {
+  display: grid;
+  justify-items: center;
+  img {
+    width: 150px;
+    cursor: pointer;
+    margin-bottom: 1rem;
   }
 }

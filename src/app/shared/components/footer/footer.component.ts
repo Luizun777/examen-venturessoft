@@ -27,4 +27,11 @@ export class FooterComponent implements OnInit {
   async selectLanguage(value: any): Promise<void> {
     await this.translationSrv.loadTranslations(value);
   }
+
+  downloadApk(): void {
+    const link = document.createElement('a');
+    link.href = 'assets/app/Venture-Soft.apk';  // Asegúrate de que la ruta sea correcta
+    link.download = 'Venture-Soft.apk';
+    link.click();
+  }
 }
