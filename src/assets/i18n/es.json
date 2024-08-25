@@ -54,5 +54,9 @@
 
     "login-login-error": "Error al iniciare sesión",
     "login-register-error": "Error al registrase"
+  },
+  "tabla": {
+    "tabla-noYoLink": "No se requiere vinculación de tarjeta",
+    "tabla-yoLink": "Vincula tu tarjeta para obtener"
   }
 }

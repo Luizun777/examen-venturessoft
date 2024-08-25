@@ -54,5 +54,9 @@
 
     "login-login-error": "Login error",
     "login-register-error": "Registration error"
+  },
+  "tabla": {
+    "tabla-noYoLink": "No card linking required",
+    "tabla-yoLink": "Link your card to get"
   }
 }
