@@ -5,7 +5,7 @@
       [innerHTML]="((home$ | async)?.['title'] ?? '') | textColor"
     ></h1>
   </div>
-
+  <app-tabla />
   <div class="contenido-btn">
     <btn-text-icon
       [title]="(home$ | async)?.['linkYoCard'] ?? ''"

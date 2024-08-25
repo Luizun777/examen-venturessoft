@@ -8,6 +8,7 @@ import { TranslationService } from '@core/services/translation.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { TextColorPipe } from '@shared/pipe/text-color.pipe';
+import { TablaComponent } from "../tabla/tabla.component";
 
 @Component({
   selector: 'featur-home',
@@ -19,8 +20,9 @@ import { TextColorPipe } from '@shared/pipe/text-color.pipe';
     MarcasComponent,
     DetailsComponent,
     BtnTextIconComponent,
-    TextColorPipe
-  ],
+    TextColorPipe,
+    TablaComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

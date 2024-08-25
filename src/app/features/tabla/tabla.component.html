@@ -1,0 +1,36 @@
+<div class="container-table">
+  <table mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+    <!-- Descripción Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <!-- No Card Linking Required Column -->
+    <ng-container matColumnDef="noCardLinking">
+      <th mat-header-cell *matHeaderCellDef class="text-center">
+        {{ translations["tabla-noYoLink"] }}
+      </th>
+      <td mat-cell *matCellDef="let element" class="text-center">
+        @if (element.noCardLinking) {
+        <mat-icon class="check-icon">check_circle</mat-icon>
+        }
+      </td>
+    </ng-container>
+
+    <!-- Link Card Column -->
+    <ng-container matColumnDef="linkCard">
+      <th mat-header-cell *matHeaderCellDef class="text-center">
+        {{ translations["tabla-yoLink"] }}
+      </th>
+      <td mat-cell *matCellDef="let element" class="text-center">
+        @if (element.linkCard) {
+        <mat-icon class="check-icon">check_circle</mat-icon>
+        }
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

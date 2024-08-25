@@ -15,21 +15,18 @@
   }
 }
 
-// Para monitores de escritorio (pantallas grandes, >1200px)
 @media (min-width: 1201px) {
   .contenido-filter {
     grid-template-columns: 1fr auto;
   }
 }
 
-// Para laptops (pantallas medianas, entre 1024px y 1200px)
 @media (max-width: 1200px) and (min-width: 1024px) {
   .contenido-filter {
     grid-template-columns: 1fr auto;
   }
 }
 
-// Para tablets (pantallas medianas, entre 481px y 768px)
 @media (max-width: 1023px) and (min-width: 768px) {
   .contenido-filter {
     grid-template-columns: 1fr auto;
@@ -39,7 +36,6 @@
   }
 }
 
-// Para móviles (pantallas pequeñas, entre 321px y 480px)
 @media (max-width: 767px) and (min-width: 481px) {
   .contenido-filter {
     grid-template-columns: 1fr;
@@ -49,7 +45,6 @@
   }
 }
 
-// Para móviles pequeños (pantallas muy pequeñas, <=320px)
 @media (max-width: 480px) {
   .contenido-filter {
     grid-template-columns: 1fr;
@@ -79,7 +74,6 @@
   grid-gap: 16px;
 }
 
-// Para monitores de escritorio (pantallas grandes, >1200px)
 @media (min-width: 1201px) {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -87,7 +81,6 @@
   }
 }
 
-// Para laptops (pantallas medianas, entre 1024px y 1200px)
 @media (max-width: 1200px) and (min-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -95,7 +88,6 @@
   }
 }
 
-// Para tablets (pantallas medianas, entre 481px y 768px)
 @media (max-width: 1023px) and (min-width: 768px) {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -103,7 +95,6 @@
   }
 }
 
-// Para móviles (pantallas pequeñas, entre 321px y 480px)
 @media (max-width: 767px) and (min-width: 481px) {
   .grid-container {
     grid-template-columns: repeat(auto-fill, minmax(0px, 1fr));
@@ -111,10 +102,9 @@
   }
 }
 
-// Para móviles pequeños (pantallas muy pequeñas, <=320px)
 @media (max-width: 480px) {
   .grid-container {
-    grid-template-columns: 300px; // Una sola columna
+    grid-template-columns: 300px;
     grid-gap: 8px;
   }
 }
