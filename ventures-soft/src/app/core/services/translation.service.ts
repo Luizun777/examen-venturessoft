@@ -53,4 +53,15 @@ export class TranslationService {
       map((translations) => this.getTranslationObject(key, translations))
     );
   }
+
+  async loadCatalogo(language: string, folder: string): Promise<any> {
+    try {
+      const translations = await import(
+        `../../../assets/i18n/${folder}/${language}.json`
+      );
+      return translations.default;
+    } catch {
+      return null;
+    }
+  }
 }

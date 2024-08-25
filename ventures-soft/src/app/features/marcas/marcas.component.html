@@ -1,14 +1,10 @@
 <div class="contenido-filter">
-  <h2>{{(marcas$ | async)?.['title'] ?? ''}} ({{ marcas.length }})</h2>
+  <h2>{{ translations["title"] }} ({{ marcas.length }})</h2>
   <div class="btn-filtros">
     <app-change-grid [showGrid]="showGrid" (emitChange)="marcasGrid($event)" />
     <app-generic-select
-      [title]="(marcas$ | async)?.['sortBy'] ?? ''"
-      [optionList]="
-        ((languiaje$ | async) ?? '') === languageDefault
-          ? sortByListEn
-          : sortByListEs
-      "
+      [title]="translations['sortBy']"
+      [optionList]="sortByList"
       (changeOption)="changeSortBy($event)"
       [currenValue]="valueSort"
     />
@@ -29,7 +25,7 @@
 } } } @if (marcasFilter.length !== marcas.length) {
 <div class="contenido-btn">
   <app-btn-text-icon
-    [title]="(marcas$ | async)?.['moreCoupons'] ?? ''"
+    [title]="translations['moreCoupons']"
     [icon]="'chevron_right'"
     [color]="'primary'"
     [matBtn]="false"
@@ -37,5 +33,5 @@
   />
 </div>
 } @if ( marcas.length === 0 && !cargando) {
-<h2 class="no-data">{{(marcas$ | async)?.['notFound'] ?? ''}}</h2>
+<h2 class="no-data">{{ translations["notFound"] }}</h2>
 }
