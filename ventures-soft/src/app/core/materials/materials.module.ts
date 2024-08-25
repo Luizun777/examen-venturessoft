@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 const modulos = [
   MatFormFieldModule,
@@ -24,6 +26,8 @@ const modulos = [
   MatPaginatorModule,
   MatTooltipModule,
   MatProgressSpinnerModule,
+  MatCardModule,
+  MatListModule
 ];
 
 @NgModule({

@@ -18,3 +18,7 @@ ion-button[color="primary"] {
   --background-hover: #7e259b;
   --background-activated: #5a178a;
 }
+.invisible-divider {
+  width: 1rem;
+  background: rgba(255, 255, 255, 0);
+}

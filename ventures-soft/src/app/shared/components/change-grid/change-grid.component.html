@@ -1,0 +1,16 @@
+<div class="btn-filtros">
+  <ion-fab-button
+    size="small"
+    [color]="!showGrid ? 'primary' : 'medium'"
+    (click)="changeGrid(false)"
+  >
+    <ion-icon name="list-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-button
+    size="small"
+    [color]="showGrid ? 'primary' : 'medium'"
+    (click)="changeGrid(true)"
+  >
+    <ion-icon name="grid-outline"></ion-icon>
+  </ion-fab-button>
+</div>

@@ -5,19 +5,20 @@
       {{ userSession }}
     </ion-title>
     <ion-buttons slot="end">
+      <app-btn-text-icon
+        [title]="translations['header-login']"
+        [icon]="'chevron_right'"
+        (click)="goToLogin()"
+      />
 
-      <ion-button fill="clear" color="dark" *ngIf="userSession" (click)="logOut()">
-        <ion-label>{{translations['header-loginOut']}}</ion-label>
-        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-      </ion-button>
+      <ion-item-divider class="invisible-divider"></ion-item-divider>
 
-      <ion-button fill="clear" color="dark" *ngIf="!userSession" (click)="goToLogin()">
-        <ion-label>{{translations['header-login']}}</ion-label>
-        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-      </ion-button>
-
-      <ion-button fill="solid" color="primary">{{translations['header-linkYoCard']}}</ion-button>
-
+      <app-btn-text-icon
+        [title]="translations['header-linkYoCard']"
+        [icon]="'chevron_right'"
+        [matBtn]="false"
+        color="primary"
+      />
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

@@ -1,0 +1,12 @@
+@if (matBtn) {
+  <button mat-button [color]="color">
+    {{ title }}
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+  } @else {
+  <button mat-flat-button [color]="color">
+    {{ title }}
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+  }
+  
