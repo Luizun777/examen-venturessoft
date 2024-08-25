@@ -11,6 +11,7 @@ export class AlertService {
       html,
       icon: 'error',
       allowOutsideClick: false,
+      heightAuto: false
     });
   }
 
@@ -20,6 +21,7 @@ export class AlertService {
       html,
       icon: 'success',
       allowOutsideClick: false,
+      heightAuto: false
     } as any);
   }
 }

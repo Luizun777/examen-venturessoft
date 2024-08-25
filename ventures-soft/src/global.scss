@@ -116,3 +116,24 @@
     }
   }
 }
+
+.swal2-container {
+  z-index: 99999 !important;
+}
+
+.swal2-popup {
+  background-color: #fff !important;
+  color: #333 !important;
+}
+body.ionic-dark .swal2-popup {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+.swal2-container {
+  z-index: 99999 !important;
+}
+.my-swal-popup {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  z-index: 99999 !important;
+}
