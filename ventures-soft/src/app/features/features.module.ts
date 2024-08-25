@@ -6,6 +6,7 @@ import { FeaturesHomeComponent } from './features-home/features-home.component';
 import { TextColorPipe } from '@shared/pipe/text-color.pipe';
 import { MaterialsModule } from '@core/materials/materials.module';
 import { TablaComponent } from './tabla/tabla.component';
+import { ComponentsModule } from '@shared/components/components.module';
 
 const componets = [FeaturesHomeComponent, TablaComponent];
 
@@ -19,6 +20,7 @@ const componets = [FeaturesHomeComponent, TablaComponent];
     FormsModule,
     TextColorPipe,
     MaterialsModule,
+    ComponentsModule
   ],
 })
 export class FeaturesModule {}
