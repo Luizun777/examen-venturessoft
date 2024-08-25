@@ -1,0 +1,41 @@
+<div class="contenido-filter">
+  <h2>{{(marcas$ | async)?.['title'] ?? ''}} ({{ marcas.length }})</h2>
+  <div class="btn-filtros">
+    <app-change-grid [showGrid]="showGrid" (emitChange)="marcasGrid($event)" />
+    <app-generic-select
+      [title]="(marcas$ | async)?.['sortBy'] ?? ''"
+      [optionList]="
+        ((languiaje$ | async) ?? '') === languageDefault
+          ? sortByListEn
+          : sortByListEs
+      "
+      (changeOption)="changeSortBy($event)"
+      [currenValue]="valueSort"
+    />
+  </div>
+</div>
+@if (cargando) {
+<div class="contenido-loader">
+  <mat-spinner></mat-spinner>
+</div>
+} @else { @if (showGrid) {
+<div class="cards-container">
+  @for (marca of marcasFilter; track $index) {
+  <app-detail-grid [marca]="marca" [isCashback]="false" />
+  }
+</div>
+} @else { @for (marca of marcasFilter; track $index) {
+<app-detail-row [marca]="marca" />
+} } } @if (marcasFilter.length !== marcas.length) {
+<div class="contenido-btn">
+  <app-btn-text-icon
+    [title]="(marcas$ | async)?.['moreCoupons'] ?? ''"
+    [icon]="'chevron_right'"
+    [color]="'primary'"
+    [matBtn]="false"
+    (click)="allCoupons()"
+  />
+</div>
+} @if ( marcas.length === 0 && !cargando) {
+<h2 class="no-data">{{(marcas$ | async)?.['notFound'] ?? ''}}</h2>
+}

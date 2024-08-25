@@ -1,16 +1,16 @@
 <div class="btn-filtros">
-  <ion-fab-button
-    size="small"
-    [color]="!showGrid ? 'primary' : 'medium'"
+  <button
+    mat-mini-fab
+    [color]="!showGrid ? 'primary' : ''"
     (click)="changeGrid(false)"
   >
-    <ion-icon name="list-outline"></ion-icon>
-  </ion-fab-button>
-  <ion-fab-button
-    size="small"
-    [color]="showGrid ? 'primary' : 'medium'"
+    <mat-icon>format_list_bulleted</mat-icon>
+  </button>
+  <button
+    mat-mini-fab
+    [color]="showGrid ? 'primary' : ''"
     (click)="changeGrid(true)"
   >
-    <ion-icon name="grid-outline"></ion-icon>
-  </ion-fab-button>
+    <mat-icon>grid_view</mat-icon>
+  </button>
 </div>

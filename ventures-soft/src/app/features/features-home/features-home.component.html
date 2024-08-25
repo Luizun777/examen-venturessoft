@@ -1,17 +1,22 @@
 <ion-content class="ion-padding">
-  <div class="contenido-titulo">
-    <h1
-      class="custom-text"
-      [innerHTML]="translations['title'] | textColor"
-    ></h1>
+  <div class="container">
+    <div class="contenido-titulo">
+      <h1
+        class="custom-text"
+        [innerHTML]="translations['title'] | textColor"
+      ></h1>
+    </div>
+    <app-tabla />
+    <div class="contenido-btn">
+      <app-btn-text-icon
+        [title]="translations['linkYoCard']"
+        [icon]="'chevron_right'"
+        [matBtn]="false"
+        color="primary"
+      />
+    </div>
+    <app-menu />
+    <app-marcas />
   </div>
-  <app-tabla />
-  <div class="contenido-btn">
-    <app-btn-text-icon
-      [title]="translations['linkYoCard'] ?? ''"
-      [icon]="'chevron_right'"
-      [matBtn]="false"
-      color="primary"
-    />
-  </div>
+  <app-details />
 </ion-content>

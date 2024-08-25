@@ -7,8 +7,17 @@ import { TextColorPipe } from '@shared/pipe/text-color.pipe';
 import { MaterialsModule } from '@core/materials/materials.module';
 import { TablaComponent } from './tabla/tabla.component';
 import { ComponentsModule } from '@shared/components/components.module';
+import { MenuComponent } from './menu/menu.component';
+import { MarcasComponent } from './marcas/marcas.component';
+import { DetailsComponent } from './details/details.component';
 
-const componets = [FeaturesHomeComponent, TablaComponent];
+const componets = [
+  FeaturesHomeComponent,
+  TablaComponent,
+  MenuComponent,
+  MarcasComponent,
+  DetailsComponent
+];
 
 @NgModule({
   declarations: componets,
@@ -20,7 +29,7 @@ const componets = [FeaturesHomeComponent, TablaComponent];
     FormsModule,
     TextColorPipe,
     MaterialsModule,
-    ComponentsModule
+    ComponentsModule,
   ],
 })
 export class FeaturesModule {}
