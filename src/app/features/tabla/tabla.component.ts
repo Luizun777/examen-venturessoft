@@ -4,11 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TableCard } from '@core/interfaces/table-card.interface';
 import { TranslationService } from '@core/services/translation.service';
 import { Subscription } from 'rxjs';
-import {
-  CatTablaEn,
-  CatTablaEs,
-  CatTablaHeader,
-} from 'src/assets/catalogos/CatTable';
+import { CatTablaHeader } from 'src/assets/catalogos/CatTable';
 
 @Component({
   selector: 'app-tabla',
@@ -28,10 +24,16 @@ export class TablaComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.translationSub = this.translationSrv.translations.subscribe(
-      (translations: any) => {
+      async (translations: any) => {
         this.translations = translations['tabla'];
-        this.dataSource =
-          translations['languiaje'] === 'es' ? CatTablaEs : CatTablaEn;
+
+        const catalago = await this.translationSrv.loadCatalogo(
+          translations['languiaje'],
+          'catTable'
+        );
+        if (catalago) {
+          this.dataSource = catalago;
+        }
       }
     );
   }

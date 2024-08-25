@@ -5,16 +5,12 @@ import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
 import { MarcasService } from '@core/services/marcas.service';
 import { environment } from '@environment/environment';
-import { firstValueFrom, Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DetailComponent } from '@shared/components/detail/detail.component';
 import { BtnTextIconComponent } from '@shared/components/btn-text-icon/btn-text-icon.component';
 import { DetailRowComponent } from '@shared/components/detail-row/detail-row.component';
 import { ChangeGridComponent } from '@shared/components/change-grid/change-grid.component';
-import {
-  SortByMarcasEn,
-  SortByMarcasEs,
-} from 'src/assets/catalogos/CatSortByMarcas';
 import { CatalogGeneric } from '@core/interfaces/catalogo-generico.interface';
 import { GenericSelectComponent } from '@shared/components/generic-select/generic-select.component';
 import { TranslationService } from '@core/services/translation.service';
@@ -43,8 +39,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   marcas: Marca[] = [];
   marcasFilter: Marca[] = [];
-  sortByListEs: CatalogGeneric[] = SortByMarcasEs;
-  sortByListEn: CatalogGeneric[] = SortByMarcasEn;
+  sortByList: CatalogGeneric[] = [];
 
   cargando: boolean = true;
   showGrid: boolean = true;
@@ -53,15 +48,29 @@ export class MarcasComponent implements OnInit, OnDestroy {
 
   languageDefault: string = environment.languageDefault;
 
-  marcas$: Observable<{ [key: string]: string }> = new Observable();
-  languiaje$: Observable<string> = new Observable();
+  translations: any = {};
 
+  private translationSub: Subscription = new Subscription();
   private marcasSub: Subscription = new Subscription();
   private listenSub: Subscription = new Subscription();
 
   async ngOnInit(): Promise<void> {
-    this.marcas$ = this.translationSrv.getTranslationObject$('marcas');
-    this.languiaje$ = this.translationSrv.getTranslationObject$('languiaje');
+    this.translationSub = this.translationSrv.translations.subscribe(
+      async (translations: any) => {
+        this.translations = {
+          ...translations['marcas'],
+          ...translations['languiaje'],
+        };
+
+        const catalago = await this.translationSrv.loadCatalogo(
+          translations['languiaje'],
+          'catSortByMarcas'
+        );
+        if (catalago) {
+          this.sortByList = catalago;
+        }
+      }
+    );
     if (Boolean(localStorage.getItem(environment.idMenuDefult))) {
       this.getMarcas();
     }
@@ -71,6 +80,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.marcasSub.unsubscribe();
     this.listenSub.unsubscribe();
+    this.translationSub.unsubscribe();
   }
 
   getMarcas(): void {
@@ -89,8 +99,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
         this.showGrid = this.persistGrid;
       },
       async () => {
-        const mensaje = await firstValueFrom(this.marcas$);
-        this.alertSrv.alertError(mensaje['errorFetch']);
+        this.alertSrv.alertError(this.translations['errorFetch']);
         this.cargando = false;
       }
     );
@@ -116,7 +125,7 @@ export class MarcasComponent implements OnInit, OnDestroy {
   changeSortBy(valueSort: number): void {
     this.valueSort = Number(valueSort);
     const { key, orderBy }: CatalogGeneric =
-      this.sortByListEn.find(({ value }) => value === valueSort) ??
+      this.sortByList.find(({ value }) => value === valueSort) ??
       ({} as CatalogGeneric);
     this.marcasFilter = this.ordenarLista(
       this.marcasFilter,
