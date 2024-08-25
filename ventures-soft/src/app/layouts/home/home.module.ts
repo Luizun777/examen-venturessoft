@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { FeaturesModule } from "../../features/features.module";
 
 
 @NgModule({
@@ -13,8 +15,10 @@ import { HomeRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HomeRoutingModule
-  ],
+    HomeRoutingModule,
+    ComponentsModule,
+    FeaturesModule
+],
   declarations: [HomeComponent]
 })
 export default class HomeModule {}

@@ -1,3 +1,23 @@
-<p>
-  header works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="userSession">
+      {{ translations["login-login-success"] }}
+      {{ userSession }}
+    </ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button fill="clear" color="dark" *ngIf="userSession" (click)="logOut()">
+        <ion-label>{{translations['header-loginOut']}}</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" color="dark" *ngIf="!userSession" (click)="goToLogin()">
+        <ion-label>{{translations['header-login']}}</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="solid" color="primary">{{translations['header-linkYoCard']}}</ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

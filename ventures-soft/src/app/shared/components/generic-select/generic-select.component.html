@@ -1,0 +1,11 @@
+<span class="icon" *ngIf="icon">
+  <mat-icon>{{ icon }}</mat-icon>
+</span>
+<mat-form-field>
+  <mat-label>{{ title }}</mat-label>
+  <mat-select (valueChange)="changeValue($event)" [(value)]="currenValue">
+    <ng-container *ngFor="let option of optionList">
+      <mat-option [value]="option.value">{{ option.title }}</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

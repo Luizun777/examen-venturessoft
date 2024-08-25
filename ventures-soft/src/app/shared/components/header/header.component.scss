@@ -1,0 +1,20 @@
+ion-toolbar {
+  --background: linear-gradient(to right, #ffffff, #f0f0ff);
+}
+
+ion-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+ion-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --border-radius: 4px;
+}
+
+ion-button[color="primary"] {
+  --background: #6a1b9a;
+  --background-hover: #7e259b;
+  --background-activated: #5a178a;
+}
