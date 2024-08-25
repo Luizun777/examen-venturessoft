@@ -46,8 +46,14 @@ export class FeaturesLoginComponent implements OnInit, OnDestroy {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      confirmPassword: ['', this.isLogin ? [] : [Validators.required]],
+      confirmPassword: [''],
     });
+    if (!this.isLogin) {
+      this.authForm
+        .get('confirmPassword')
+        ?.addValidators([Validators.required]);
+    }
+    this.authForm.updateValueAndValidity();
   }
 
   async selectLanguage(value: any): Promise<void> {
