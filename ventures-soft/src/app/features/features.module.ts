@@ -10,13 +10,15 @@ import { ComponentsModule } from '@shared/components/components.module';
 import { MenuComponent } from './menu/menu.component';
 import { MarcasComponent } from './marcas/marcas.component';
 import { DetailsComponent } from './details/details.component';
+import { FeaturesLoginComponent } from './features-login/features-login.component';
 
 const componets = [
   FeaturesHomeComponent,
   TablaComponent,
   MenuComponent,
   MarcasComponent,
-  DetailsComponent
+  DetailsComponent,
+  FeaturesLoginComponent
 ];
 
 @NgModule({
