@@ -38,3 +38,29 @@ Puedes ver una demo del proyecto en funcionamiento en el siguiente enlace:
 4. Levantar el proyecto:
 
    `http://localhost:4200/`
+
+## Generar App
+
+1. Construye tu proyecto Angular
+
+```bash
+   ng build
+```
+
+2. Generar el Proyecto Android:
+
+   ```bash
+   npx cap add android
+   npx cap sync android
+   ```
+
+3. Sincroniza nuevamente Capacitor con Android (Opcional):
+
+   ```bash
+   npx cap sync
+   ```
+
+4. Abrir Android Studio:
+   ```bash
+   Menu > Build > Build APK(s)
+   ```
