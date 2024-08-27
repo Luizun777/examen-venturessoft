@@ -2,18 +2,26 @@
   @if (isCashback) {
   <div class="floating-image">
     <img
-      [src]="marca.imagen || 'assets/images/no-image.webp'"
+      [src]="imgFloat"
+      (load)="loaderImgFloat()"
+      (error)="onImageError($event)"
       [alt]="marca.nombreMarca"
       class="circular-image"
       [matTooltip]="marca.nombreMarca"
+      [hidden]="showLoaderImgFloat"
     />
   </div>
+  } @if (showLoaderBackground) {
+  <mat-spinner class="card-loader"></mat-spinner>
   }
   <img
     mat-card-image
-    [src]="background || 'assets/images/no-image.webp'"
+    [src]="backgroundImg"
+    (load)="loaderImg()"
+    (error)="onImageError($event)"
     [alt]="marca.nombreMarca"
     class="card-image"
+    [hidden]="showLoaderBackground"
   />
   <mat-card-content>
     <div [class]="'floating-card' + badgeClass">

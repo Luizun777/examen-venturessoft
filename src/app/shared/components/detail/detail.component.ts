@@ -6,6 +6,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BtnTextIconComponent } from '../btn-text-icon/btn-text-icon.component';
 import { TranslationService } from '@core/services/translation.service';
 import { Subscription } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-detail',
@@ -15,6 +16,7 @@ import { Subscription } from 'rxjs';
     MatIconModule,
     MatTooltipModule,
     BtnTextIconComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
@@ -24,6 +26,11 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   @Input() marca: Marca = {} as Marca;
   @Input() isCashback: boolean = true;
+  backgroundImg: string = 'assets/images/no-image.webp';
+  imgFloat: string = 'assets/images/no-image.webp';
+
+  showLoaderBackground: boolean = true;
+  showLoaderImgFloat: boolean = true;
 
   private translationSub: Subscription = new Subscription();
   translations: any = {};
@@ -54,5 +61,23 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   get badgeIcon(): string {
     return this.isCashback ? 'local_atm' : 'card_travel';
+  }
+
+  loaderImg(): void {
+    this.backgroundImg = this.validImage(this.background);
+    this.showLoaderBackground = false;
+  }
+
+  loaderImgFloat(): void {
+    this.imgFloat = this.validImage(this.marca.imagen);
+    this.showLoaderImgFloat = false;
+  }
+
+  validImage(image: string | undefined): string {
+    return image || 'assets/images/no-image.webp';
+  }
+
+  onImageError(event: any): void {
+    event.target.src = 'assets/images/no-image.webp';
   }
 }

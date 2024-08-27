@@ -1,10 +1,16 @@
 <mat-list-item>
   <div class="contenido">
+    @if (showLoader) {
+    <mat-spinner class="marca-spinner"></mat-spinner>
+    }
     <img
       mat-card-image
-      [src]="marca.imagen || 'assets/images/no-image.webp'"
+      [src]="backgroundImg"
+      (load)="loaderImg()"
+      (error)="onImageError($event)"
       [alt]="marca.nombreMarca"
       class="marca-image"
+      [hidden]="showLoader"
     />
 
     <div>

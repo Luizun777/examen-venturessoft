@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { Marca } from '@core/interfaces/marcas.interface';
 import { TranslationService } from '@core/services/translation.service';
 import { Subscription } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-detail-row',
@@ -17,6 +18,7 @@ import { Subscription } from 'rxjs';
     MatTooltipModule,
     BtnTextIconComponent,
     MatListModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './detail-row.component.html',
   styleUrl: './detail-row.component.scss',
@@ -25,6 +27,9 @@ export class DetailRowComponent implements OnInit, OnDestroy {
   private translationSrv = inject(TranslationService);
 
   @Input() marca: Marca = {} as Marca;
+
+  backgroundImg: string = 'assets/images/no-image.webp';
+  showLoader: boolean = true;
 
   private translationSub: Subscription = new Subscription();
   translations: any = {};
@@ -37,5 +42,14 @@ export class DetailRowComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.translationSub.unsubscribe();
+  }
+
+  loaderImg(): void {
+    this.backgroundImg = this.marca.imagen || 'assets/images/no-image.webp';
+    this.showLoader = false;
+  }
+
+  onImageError(event: any): void {
+    event.target.src = 'assets/images/no-image.webp';
   }
 }
