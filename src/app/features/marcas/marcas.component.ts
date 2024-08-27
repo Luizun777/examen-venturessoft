@@ -54,23 +54,8 @@ export class MarcasComponent implements OnInit, OnDestroy {
   private marcasSub: Subscription = new Subscription();
   private listenSub: Subscription = new Subscription();
 
-  async ngOnInit(): Promise<void> {
-    this.translationSub = this.translationSrv.translations.subscribe(
-      async (translations: any) => {
-        this.translations = {
-          ...translations['marcas'],
-          ...translations['languiaje'],
-        };
-
-        const catalago = await this.translationSrv.loadCatalogo(
-          translations['languiaje'],
-          'catSortByMarcas'
-        );
-        if (catalago) {
-          this.sortByList = catalago;
-        }
-      }
-    );
+  ngOnInit(): void {
+    this.getTranslation();
     if (Boolean(localStorage.getItem(environment.idMenuDefult))) {
       this.getMarcas();
     }
@@ -83,12 +68,31 @@ export class MarcasComponent implements OnInit, OnDestroy {
     this.translationSub.unsubscribe();
   }
 
+  getTranslation(): void {
+    this.translationSub = this.translationSrv.translations.subscribe({
+      next: async (translations: any) => {
+        this.translations = {
+          ...translations['marcas'],
+          ...translations['languiaje'],
+        };
+
+        const catalago = await this.translationSrv.loadCatalogo(
+          translations['languiaje'],
+          'catSortByMarcas'
+        );
+        if (catalago) {
+          this.sortByList = catalago;
+        }
+      },
+    });
+  }
+
   getMarcas(): void {
     this.marcas = [];
     this.marcasFilter = [];
     this.cargando = true;
-    this.marcasSub = this.marcasSrv.getMarcas().subscribe(
-      ({ codigo, menuItems, error, message }: HttpResponse<Marca[]>) => {
+    this.marcasSub = this.marcasSrv.getMarcas().subscribe({
+      next: ({ codigo, menuItems, error, message }: HttpResponse<Marca[]>) => {
         if (error) {
           this.alertSrv.alertError(`${message} ${codigo}`);
         }
@@ -98,11 +102,11 @@ export class MarcasComponent implements OnInit, OnDestroy {
         this.changeSortBy(this.valueSort);
         this.showGrid = this.persistGrid;
       },
-      async () => {
+      error: async () => {
         this.alertSrv.alertError(this.translations['errorFetch']);
         this.cargando = false;
-      }
-    );
+      },
+    });
   }
 
   listenCategoria(): void {

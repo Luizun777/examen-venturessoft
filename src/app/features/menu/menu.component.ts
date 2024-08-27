@@ -5,7 +5,7 @@ import { AlertService } from '@core/services/alert.service';
 import { CatalogosService } from '@core/services/catalogos.service';
 import { environment } from '@environment/environment';
 import { MenuItemComponent } from '@shared/components/menu-item/menu-item.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TranslationService } from '@core/services/translation.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -33,10 +33,15 @@ export class MenuComponent implements OnInit {
   }
 
   getCategorias(): void {
-    this.menuItems = []
+    this.menuItems = [];
     this.cargando = true;
-    this.catalogosSrv.getCategorias().subscribe(
-      ({ error, codigo, message, menuItems }: HttpResponse<Categorias[]>) => {
+    this.catalogosSrv.getCategorias().subscribe({
+      next: ({
+        error,
+        codigo,
+        message,
+        menuItems,
+      }: HttpResponse<Categorias[]>) => {
         if (error) {
           this.alertSrv.alertError(`${message} ${codigo}`);
         }
@@ -48,8 +53,9 @@ export class MenuComponent implements OnInit {
         this.updateIdMenu();
         this.cargando = false;
       },
-      () => this.alertSrv.alertError('Se ha producido un error al cargar datos')
-    );
+      error: () =>
+        this.alertSrv.alertError('Se ha producido un error al cargar datos'),
+    });
   }
 
   itemSelected(itemID: number): void {
