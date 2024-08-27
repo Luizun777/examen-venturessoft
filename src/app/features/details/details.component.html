@@ -1,5 +1,5 @@
 <div class="container-details">
-  <h1 class="header">{{(details$ | async)?.['title'] ?? ''}}</h1>
+  <h1 class="header">{{translations['title'] ?? ''}}</h1>
 
   <div class="cards-container">
     @for (marca of marcas; track $index) {
@@ -9,7 +9,7 @@
 
   <div class="btn-content">
     <btn-text-icon
-      [title]="(details$ | async)?.['linkYoCard'] ?? ''"
+      [title]="translations['linkYoCard'] ?? ''"
       [icon]="'chevron_right'"
       [matBtn]="false"
       color="primary"
